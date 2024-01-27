@@ -1,0 +1,3 @@
+1、将你要解包的rec，重命名为twrp.img，并复制到此目录
+2、以root方式执行【解包twrp.sh】
+3、解包出来的ramdisk便是解包出来的recovery文件

@@ -1,0 +1,9 @@
+1.内置最新TWRP3.5.2
+2.去除avb校验
+3.去除data加密
+4.magisk23.0修补
+5.添加fastbooted模式 for TWRP
+
+已知问题:
+1.TWRP电量目前不显示
+2.TWRP外置OTG连接可能不正常

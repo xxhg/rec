@@ -1,0 +1,14 @@
+1、将你要打补丁的内核boot.img，复制到input/boot.img(名字一定要叫boot.img)
+2、安装个MT管理器，以root的方式执行【给boot安装rec.sh】
+3、等待几秒，打好rec补丁的内核，会生成在output/new_boot.img
+4、内核打rec补丁完成
+5、由于打了rec补丁，所以面具会掉，需要用面具对new_boot.img进行root修补
+6、一个有root，有twrp的内核就做好了，将其刷入手机boot分区即可
+
+注意事项：
+
+1.工具已内置ramdisk魅族18系列通用TWRP无需单独提取ramdisk文件
+ramdisk/ramdisk文件，就是twrp。如果你需要更换其它twrp的话，
+请将twrp解包出来的ramdisk文件，替换掉ramdisk/ramdisk中即可。
+
+2.由于安卓11的特殊限制请将工具rec_install_tools文件夹移动至/data/data/目录使用，并使用MT管理器修改所有文件权限0777，否则可能报错
