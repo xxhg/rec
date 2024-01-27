@@ -29,11 +29,15 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      - name: run install
-        run: ./install
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Enable KVM
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: run install
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          script: ./install
+          #script: ./gradlew connectedCheck
